@@ -1,0 +1,7 @@
+{
+  "name": "New Marian Dental Clinic",
+  "description": "Production-ready dental clinic website for New Marian Dental Clinic and Implant Centre, Pala, Kerala. Features bilingual support, 2 locations, 19+ services, and appointment booking.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

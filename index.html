@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Marian Dental Clinic | Pala's Premier Dental Care</title>
+    <script>
+      // Non-destructive environment shim
+      window.process = window.process || { env: {} };
+      window.process.env = window.process.env || {};
+      window.process.env.NODE_ENV = window.process.env.NODE_ENV || 'production';
+
+      // Global error reporting for debugging
+      window.onerror = function(msg, url, lineNo, columnNo, error) {
+        console.error('Initialization Error:', msg, url, lineNo, columnNo, error);
+        const root = document.getElementById('root');
+        if (root && (!root.innerHTML || root.innerHTML === '')) {
+          root.innerHTML = `
+            <div style="color: white; padding: 40px; font-family: sans-serif; text-align: center; background: #0B1120; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+              <h1 style="color: #0EA5E9; font-size: 24px; margin-bottom: 16px;">System Initialization Error</h1>
+              <p style="color: #64748b; margin-bottom: 24px; max-width: 400px;">The portal failed to start. This is often due to a connection or script resolution issue.</p>
+              <pre style="background: rgba(255,0,0,0.1); padding: 20px; border-radius: 12px; font-family: monospace; font-size: 11px; color: #f87171; text-align: left; border: 1px solid rgba(248,113,113,0.2); overflow-x: auto; max-width: 90vw; white-space: pre-wrap;">${msg}\nLine: ${lineNo}</pre>
+              <button onclick="window.location.reload()" style="margin-top: 32px; background: #0EA5E9; color: white; border: none; padding: 14px 28px; border-radius: 12px; cursor: pointer; font-weight: 700;">RETRY LOADING</button>
+            </div>
+          `;
+          const loader = document.getElementById('loader');
+          if (loader) loader.remove();
+        }
+        return false;
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: { DEFAULT: '#0EA5E9', foreground: '#FFFFFF' },
+              cta: { DEFAULT: '#10B981', foreground: '#FFFFFF' },
+              accent: '#3B82F6',
+              dark: '#0B1120',
+            },
+            fontFamily: {
+              sans: ['DM Sans', 'sans-serif'],
+              display: ['Fraunces', 'serif'],
+              serif: ['Cormorant Garamond', 'serif'],
+            },
+          }
+        }
+      }
+    </script>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background-color: #0B1120;
+        font-family: 'DM Sans', sans-serif;
+        color: #FAFAFA;
+        overflow-x: hidden;
+      }
+      #root { display: flex; flex-direction: column; min-height: 100vh; }
+      .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+      .gradient-text { background: linear-gradient(135deg, #0EA5E9, #3B82F6, #6366F1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+      @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0?bundle",
+    "react-dom": "https://esm.sh/react-dom@19.0.0?bundle",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client?bundle",
+    "react/jsx-runtime": "https://esm.sh/react@19.0.0/jsx-runtime?bundle",
+    "lucide-react": "https://esm.sh/lucide-react@0.460.0?bundle",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.22.3?bundle",
+    "framer-motion": "https://esm.sh/framer-motion@11.0.8?bundle",
+    "@google/genai": "https://esm.sh/@google/genai@0.2.1?bundle",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <div id="loader" style="height: 100vh; width: 100vw; display: flex; align-items: center; justify-content: center; background: #0B1120; position: fixed; top: 0; left: 0; z-index: 9999; transition: opacity 0.5s ease-out;">
+      <div style="text-align: center;">
+        <div style="width: 48px; height: 48px; border: 4px solid rgba(14, 165, 233, 0.1); border-top-color: #0EA5E9; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 24px;"></div>
+        <p style="color: #64748b; font-family: sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;">Initializing Clinic Portal</p>
+      </div>
+    </div>
+    <script type="module" src="index.tsx"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
